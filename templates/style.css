@@ -1,0 +1,14 @@
+.footer mt-auto py-3 {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+.container-homepage {
+    background-color: tomato;
+    padding: 200px;
+    margin: 300px;
+    text-align: center;
+    color: white;
+}

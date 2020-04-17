@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+<div style="background-color:green;color:white;padding:20px;text-align:center">
+    <h2 class="display-2">Ready to sign up?</h2>
+</div>
+</div>
+
+<div class="container">
+<div style="background-color:white;color:black;padding:20px;text-align:center">
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Register your business</h2>
+    <p class="text-center w-responsive mx-auto mb-5">Fill out the form below to enter your business in the directory</p>
+    <p class="text-center w-responsive mx-auto mb-5">By adding your profile to <strong>Acme Business Directory</strong> and keeping your profile up-to-date, you will be promoting yourself to a huge online audience and helping to maintain our owner-verified dataset. After verification, you can add images, a logo, opening hours and more, to your profile.</p>
+</div>
+</div>
+
+<div class="container">
+<div style="background-color:green;color:white;padding:20px;text-align:left">
+<!-- Sign up form -->
+<p class="h4 mb-4 text-center">Sign up</p>
+<form class="text-left" action="#!">
+
+    <p class="h4 mb-4">Business name</p>
+    <div class="form-row mb-4">
+            <div class="col">
+            <!-- Business name -->
+            <label for="businessname">What is the name of your business?</label>
+            <input type="text" id="businessname" class="form-control" placeholder="Enter the name of your business here">
+        </div>
+
+        <div class="col">
+            <!-- Contact person -->
+            <label for="name">Your name</label>
+            <input type="text" id="name" class="form-control" placeholder="Name">
+        </div>
+    </div>
+
+    <p class="h4 mb-4">Contact details</p>
+    <!-- E-mail address -->
+    <label for="email">E-mail address</label>
+    <input type="email" id="email" class="form-control mb-4" placeholder="info@mycompany.com">
+
+    <!-- Telephone number -->
+    <label for="telephone">Telephone number</label>
+    <input type="text" id="phone" class="form-control" placeholder="021 1234567" aria-describedby="phonehelp">
+    <small id="phone" class="form-text mb-4">
+    </small>
+
+    <!-- Sign up button -->
+    <button class="btn btn-info my-4 btn-block" type="submit">Register</button>
+
+    <!-- Terms of service -->
+    <p>By clicking
+        <em>Register</em> you agree to our
+        <a href="" target="_blank">terms of service</a>
+
+</form>
+<!-- Sign up form -->
+</div>
+</div>
+
+{% endblock %}
