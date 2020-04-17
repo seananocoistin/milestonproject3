@@ -29,7 +29,7 @@ def contact():
 def get_tasks():
     return render_template("tasks.html", tasks=mongo.db.tasks.find())
 
-@app.route("/add_task")
+@app.route("/addtask")
 def add_task():
     return render_template("addtask.html")
 

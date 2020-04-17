@@ -1,7 +1,15 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<h3>Add task</h3>
+<div class="container">
+<div style="background-color:green;color:white;padding:20px;text-align:center">
+    <h2 class="display-2">Edit your listing</h2>
+</div>
+</div>
+
+
+<div class="container">
+<div style="background-color:green;color:white;padding:20px;text-align:left">
 <form>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -42,8 +50,12 @@
       <label for="inputZip">Zip</label>
       <input type="text" class="form-control" id="inputZip">
     </div>
+    <div class="button">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
+</div>
+</div>
 
 {% endblock %}
