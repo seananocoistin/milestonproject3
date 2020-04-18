@@ -33,6 +33,14 @@ def get_tasks():
 def add_task():
     return render_template("addtask.html")
 
+@app.route("/edit")
+def add_edit():
+    return render_template("edit.html")
+
+@app.route("/delete")
+def add_delete():
+    return render_template("delete.html")
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
