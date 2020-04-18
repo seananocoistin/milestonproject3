@@ -66,8 +66,6 @@ def contact():
 def get_tasks():
     return render_template("tasks.html", tasks=mongo.db.tasks.find())
 
-## Screenshot
-
 ## Roadmap
 Not all of the proposed features of the business directory are included in this model e.g there is no directory to search through, there are no business categories, the search function does not function etc. It is not necessary to include them at present as they are not entirely needed in order to demonstrate the purpose of this directory. For example, many categories could be added but it would take a lot of time to do so.
 
