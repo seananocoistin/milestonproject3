@@ -11,11 +11,11 @@
 <div class="container">
 <div style="background-color:green;color:white;padding:20px;text-align:left">
 ABOUT
-<form>
+<form action='/addrecord' method='post'>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputName">What is the name of your business?</label>
-      <input type="text" class="form-control" id=businessName>
+      <input type="text" class="form-control" name="business_name">
     </div>
 </div>
 
@@ -24,79 +24,66 @@ CONTACT DETAILS
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <input type="text" class="form-control" name="address" placeholder="1234 Main St">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            <input type="text" class="form-control" name="address2" placeholder="Apartment, studio, or floor">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputCity">City/County</label>
-            <input type="text" class="form-control" id="inputCity">
+            <input type="text" class="form-control" name="inputCity">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputCode">Postal code</label>
-            <input type="text" class="form-control" id="inputCode">
+            <input type="text" class="form-control" name="inputCode">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
       <label for="inputCode">Country</label>
-      <input type="text" class="form-control" id="inputCode">
+      <input type="text" class="form-control" name="Country">
     </div>
+</div>
 
+<div>
 CONTACT DETAILS
 <p>How can customers contact you?</p> 
     <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Telephone number</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="021 1234567">
+      <label for="Telephone">Telephone number</label>
+      <input type="number" class="form-control" name="telephone" placeholder="021 1234567">
     </div>
     </div>
       <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">E-mail address</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="info@mycompany.com">
+      <input type="email" class="form-control" name="email" placeholder="info@mycompany.com">
     </div>
     </div>
       <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Website</label>
-      <input type="text" class="form-control" id="inputWebsite" placeholder="www.mycompany.com">
+      <input type="text" class="form-control" name="website" placeholder="www.mycompany.com">
     </div>
     </div>
-    <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputFacebook">Facebook</label>
-      <input type="text" class="form-control" id="inputFacebook">
-    </div>
-    </div>
-
-BUSINESS HOURS
-<p>What are your business hours?</p>
-    <div class="form-row">
-       <div class="form-group col-md-6">
-      <label for="inputEmail4">business hours</label>
-      <input type="email" class="form-control" id="inputEmail4">
-    </div>
-    </div>
+</div>
 
 DESCRIPTION
 <p>What product or service does your business offer?</p>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">E-mail address</label>
-      <input type="email" class="form-control" id="inputEmail4">
+      <label for="about">What does your company do?</label>
+      <input type="text" class="form-control" name="about">
     </div>
-    <button type="submit" class="btn btn-sm btn-primary">Add My Company</button>
-    </div>
-  </div>
+  </div>    
+<button type="submit" class="btn btn-sm btn-primary">Add My Company</button>
 </form>
 </div>
 </div>
