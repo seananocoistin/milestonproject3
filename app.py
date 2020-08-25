@@ -51,21 +51,21 @@ def contact():
 def listings():
     return render_template("listings.html", tasks=mongo.db.users.find(),status=author)
 
-@app.route("/ownrecords")
-def ownrecords():
-    return render_template("ownrecords.html", tasks=mongo.db.users.find({"author":author}),status=author)
+@app.route("/mylisting")
+def mylisting():
+    return render_template("mylisting.html", tasks=mongo.db.users.find({"author":author}),status=author)
 
 @app.route("/create")
 def create():
     return render_template("create.html",status=author)
 
-@app.route("/addrecord", methods=["POST"])
-def addrecord():
+@app.route("/addlisting", methods=["POST"])
+def addlisting():
     if request.method == "POST":
-        newrecord = request.form.to_dict()
-        newrecord.update({"author":author})
-        mongo.db.users.insert(newrecord)
-        return ownrecords()
+        newlisting = request.form.to_dict()
+        newlisting.update({"author":author})
+        mongo.db.users.insert(newlisting)
+        return mylisting()
 
 @app.route("/register", methods=["POST"])
 def register():

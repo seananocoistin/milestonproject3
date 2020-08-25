@@ -3,7 +3,7 @@
 
 <div class="container">
     <div style="background-color:green;color:white;padding:20px;text-align:center">
-        <h2 class="display-2">Listings</h2>
+        <h2 class="display-2">Your listing</h2>
     </div>
 </div>
 
@@ -47,7 +47,7 @@
 {% else %}
 <div class="container">
     <div style="background-color:tomato;color:white;padding:2px;text-align:left">
-You have no records. You can create a new record <a class="nav-link" href="{{ url_for('create') }}">here</a>.
+You have not created a listing yet. You can create a new listing <a href="{{ url_for('create') }}">here</a>.
     </div>
 </div>
 {% endif %}

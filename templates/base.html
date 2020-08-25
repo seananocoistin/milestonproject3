@@ -17,43 +17,45 @@
     <div style="background-image: url('https://www.osi.ie/wp-content/uploads/2018/08/dublin-skyline.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:100%100%;">
 
     <!-- Navbar -->
-                <nav class="navbar navbar-light bg-light">
+                <nav class="navbar navbar-custom">
                 <a class="navbar-brand" href="{{ url_for('index') }}">
                 <img src="/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-                <button type="button" class="btn btn-warning" disabled><strong>Acme Business Directory</strong></button>
+                <a><strong>Acme Business Directory</strong></a>
                 </a>
                 {% if status %}
                     <h4>Hello again {{status}} :-)</h4>
                 {% endif %}
                 <ul class="nav justify-content-end">
-                <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('index') }}">Home</a>
+                <li class="navbar-brand">
+                        <a class="navbar-brand active" style="color: white;" href="{{ url_for('index') }}">Home</a>
                     </li>                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('listings') }}">Listings</a>
+                    <li class="navbar-brand">
+                        <a class="navbar-brand" style="color: white;" href="{{ url_for('listings') }}">Listings</a>
                     </li>                    
                     {% if status %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('ownrecords') }}">My Records</a>
+                    <li class="navbar-brand">
+                        <a class="navbar-brand" style="color: white;" href="{{ url_for('mylisting') }}">My Listing</a>
                     </li>
                     {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                    <li class="navbar-brand">
+                        <a class="navbar-brand" style="color: white;" href="{{ url_for('about') }}">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                    <li class="navbar-brand">
+                        <a class="navbar-brand" style="color: white;" href="{{ url_for('contact') }}">Contact</a>
                     </li>
                     {% if status %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('logout') }}">Log out</a>
+                        <li class="navbar-brand">
+                            <button type="button" class="btn btn-sm btn-danger">
+                                <a class="navbar-link" style="color: white;" href="{{ url_for('logout') }}">Log out</a>
+                            </button>
                         </li>
                     {% else %}    
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('login') }}">Log in</a>
+                        <li class="navbar-brand">
+                            <a class="navbar-brand" style="color: white;" href="{{ url_for('login') }}">Log in</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="navbar-brand">
                             <button type="button" class="btn btn-sm btn-success">
-                                <a class="nav-link" href="{{ url_for('signup') }}">Register!</a>
+                                <a class="navbar-link" style="color: white;" href="{{ url_for('signup') }}">Register!</a>
                             </button>   
                         </li>
                     {% endif %}

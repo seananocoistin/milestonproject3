@@ -3,85 +3,78 @@
 
 <div class="container">
 <div style="background-color:green;color:white;padding:20px;text-align:center">
-    <h2 class="display-2">Edit your listing</h2>
+    <h2 class="display-2">Add a listing</h2>
 </div>
 </div>
 
 
 <div class="container">
-<div style="background-color:green;color:white;padding:20px;text-align:left">
-ABOUT
-<form action='/addrecord' method='post'>
+<div style="background-color:whitesmoke;opacity:0.95;color:black;padding:20px;text-align:left">
+<strong>ABOUT</strong>
+Listing Title
+Add listing name
+
+Category
+Select category
+Your address
+Telephone Number
+Opening Days
+Opening Time
+Closing Time
+Description
+
+Image upload
+<form action='/addlisting' method='post'>
   <div class="form-row">
-    <div class="form-group col-md-6">
       <label for="inputName">What is the name of your business?</label>
       <input type="text" class="form-control" name="business_name">
-    </div>
 </div>
 
-CONTACT DETAILS
+<strong>LOCATION</strong>
 <p>Where is your business located?</p>
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" name="address" placeholder="1234 Main St">
-        </div>
+            <label for="inputAddress" style="font-weight: bold">Address</label>
+            <input type="text" class="form-control" name="address" placeholder="12 Main St">
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputAddress2">Address 2</label>
+            <label for="inputAddress2" style="font-weight: bold">Address 2</label>
             <input type="text" class="form-control" name="address2" placeholder="Apartment, studio, or floor">
-        </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputCity">City/County</label>
+            <label for="inputCity" style="font-weight: bold">City/County</label>
             <input type="text" class="form-control" name="inputCity">
-        </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputCode">Postal code</label>
+            <label for="inputCode" style="font-weight: bold">Postal code</label>
             <input type="text" class="form-control" name="inputCode">
-        </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
-      <label for="inputCode">Country</label>
+      <label for="inputCode" style="font-weight: bold">Country</label>
       <input type="text" class="form-control" name="Country">
     </div>
-</div>
 
 <div>
-CONTACT DETAILS
+<strong>CONTACT DETAILS</strong>
 <p>How can customers contact you?</p> 
     <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="Telephone">Telephone number</label>
+      <label for="Telephone" style="font-weight: bold">Telephone number</label>
       <input type="number" class="form-control" name="telephone" placeholder="021 1234567">
     </div>
-    </div>
       <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">E-mail address</label>
+      <label for="inputEmail4" style="font-weight: bold">E-mail address</label>
       <input type="email" class="form-control" name="email" placeholder="info@mycompany.com">
     </div>
-    </div>
       <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Website</label>
+      <label for="inputEmail4"style="font-weight: bold">Website</label>
       <input type="text" class="form-control" name="website" placeholder="www.mycompany.com">
-    </div>
     </div>
 </div>
 
 DESCRIPTION
 <p>What product or service does your business offer?</p>
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="about">What does your company do?</label>
+      <label for="about" style="font-weight: bold">What does your company do?</label>
       <input type="text" class="form-control" name="about">
-    </div>
   </div>    
 <button type="submit" class="btn btn-sm btn-primary">Add My Company</button>
 </form>
