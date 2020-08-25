@@ -47,9 +47,9 @@ def logout():
 def contact():
     return render_template("contact.html",status=author)
 
-@app.route("/records")
-def records():
-    return render_template("records.html", tasks=mongo.db.users.find(),status=author)
+@app.route("/listings")
+def listings():
+    return render_template("listings.html", tasks=mongo.db.users.find(),status=author)
 
 @app.route("/ownrecords")
 def ownrecords():
@@ -74,14 +74,6 @@ def register():
         global author
         author=request.form["username"]
         return create()
-
-@app.route("/edit")
-def add_edit():
-    return render_template("edit.html",status=author)
-
-@app.route("/delete")
-def add_delete():
-    return render_template("delete.html",status=author)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
