@@ -29,11 +29,11 @@ def login():
 
 @app.route("/log_in", methods=["POST"])
 def log_in():
-    if request.method == "POST":       
-        if mongo.db.accounts.find({"username":request.form["username"],"username":request.form["password"]}).count()>0:
+    if request.method == "POST":
+        if mongo.db.accounts.count_documents({"username":request.form["username"],"password":request.form["password"]})>0:
             global author
             author=request.form["username"]
-            return add_create()
+            return create()
         else:
             return signup()
 
@@ -47,16 +47,16 @@ def logout():
 def contact():
     return render_template("contact.html",status=author)
 
-@app.route("/tasks")
-def get_tasks():
-    return render_template("tasks.html", tasks=mongo.db.users.find(),status=author)
+@app.route("/records")
+def records():
+    return render_template("records.html", tasks=mongo.db.users.find(),status=author)
 
 @app.route("/ownrecords")
-def get_ownrecords():
-    return render_template("tasks.html", tasks=mongo.db.users.find({"author":"Seanán"}),status=author)
+def ownrecords():
+    return render_template("ownrecords.html", tasks=mongo.db.users.find({"author":author}),status=author)
 
 @app.route("/create")
-def add_create():
+def create():
     return render_template("create.html",status=author)
 
 @app.route("/addrecord", methods=["POST"])
@@ -65,7 +65,7 @@ def addrecord():
         newrecord = request.form.to_dict()
         newrecord.update({"author":author})
         mongo.db.users.insert(newrecord)
-        return get_tasks()
+        return ownrecords()
 
 @app.route("/register", methods=["POST"])
 def register():
@@ -73,7 +73,7 @@ def register():
         user=mongo.db.accounts.insert(request.form.to_dict())
         global author
         author=request.form["username"]
-        return add_create()
+        return create()
 
 @app.route("/edit")
 def add_edit():
