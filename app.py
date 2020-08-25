@@ -13,32 +13,51 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html",status=author)
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about.html",status=author)
 
 @app.route("/signup")
 def signup():
-    return render_template("signup.html")
+    return render_template("signup.html",status=author)
+
+@app.route("/login")
+def login():
+    return render_template("login.html",status=author)
+
+@app.route("/log_in", methods=["POST"])
+def log_in():
+    if request.method == "POST":       
+        if mongo.db.accounts.find({"username":request.form["username"],"username":request.form["password"]}).count()>0:
+            global author
+            author=request.form["username"]
+            return add_create()
+        else:
+            return signup()
+
+@app.route("/logout")
+def logout():
+    global author
+    author = ""
+    return index()
 
 @app.route("/contact")
 def contact():
-    return render_template("contact.html")
-
+    return render_template("contact.html",status=author)
 
 @app.route("/tasks")
 def get_tasks():
-    return render_template("tasks.html", tasks=mongo.db.users.find())
+    return render_template("tasks.html", tasks=mongo.db.users.find(),status=author)
 
 @app.route("/ownrecords")
 def get_ownrecords():
-    return render_template("tasks.html", tasks=mongo.db.users.find({"author":"Seanán"}))
+    return render_template("tasks.html", tasks=mongo.db.users.find({"author":"Seanán"}),status=author)
 
 @app.route("/create")
 def add_create():
-    return render_template("create.html")
+    return render_template("create.html",status=author)
 
 @app.route("/addrecord", methods=["POST"])
 def addrecord():
@@ -58,11 +77,11 @@ def register():
 
 @app.route("/edit")
 def add_edit():
-    return render_template("edit.html")
+    return render_template("edit.html",status=author)
 
 @app.route("/delete")
 def add_delete():
-    return render_template("delete.html")
+    return render_template("delete.html",status=author)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

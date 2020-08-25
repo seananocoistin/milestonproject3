@@ -3,15 +3,14 @@
 
 <div class="container">
 <div style="background-color:green;color:white;padding:20px;text-align:center">
-    <h2 class="display-2">Ready to sign up?</h2>
+    <h2 class="display-2">Log into your account</h2>
 </div>
 </div>
 
 <div class="container">
 <div style="background-color:white;color:black;padding:20px;text-align:center">
     <!--Section heading-->
-    <h2 class="h1-responsive font-weight-bold text-center my-4">Create an account</h2>
-    <p class="text-center w-responsive mx-auto mb-5">Fill out the form below to create an account to begin using the directory</p>
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Log in to your account</h2>
     <p class="text-center w-responsive mx-auto mb-5">By adding your profile to <strong>Acme Business Directory</strong> and keeping your profile up-to-date, you will be promoting yourself to a huge online audience and helping to maintain our owner-verified dataset. After verification, you can add images, a logo, opening hours and more, to your profile.</p>
 </div>
 </div>
@@ -19,38 +18,20 @@
 <div class="container">
 <div style="background-color:green;color:white;padding:20px;text-align:left">
 <!-- Sign up form -->
-<p class="h4 mb-4 text-center">Sign up</p>
-<form class="text-left" action="/register" method="post">
+<p class="h4 mb-4 text-center">Log in</p>
+<form class="text-left" action="/log_in" method="post">
 
     <div class="form-row mb-4">
             <div class="col">
             <!-- User name -->
-            <label for="username">Username</label>
+            <label for="username">Username/e-mail address</label>
             <input type="text" name="username" class="form-control" placeholder="Enter a username here">
-            <label for="emailaddress">E-mail address</label>
-            <input type="email" name="email" class="form-control" placeholder="Enter an e-mail address">
-        </div>
-    </div>
-
-<div class="form-row mb-4">
-    <div class="col">
-            <!-- Password -->
-            <label for="name">Create a password</label>
-            <input type="password" name="password" class="form-control" placeholder="password">
-            <label for="name">Retype your password</label>
+            <label for="name">Password</label>
             <input type="password" name="password" class="form-control" placeholder="password">
         </div>
 </div>
-
-
     <!-- Sign up button -->
-    <button class="btn btn-info my-4 btn-block" type="submit">Register</button>
-
-    <!-- Terms of service -->
-    <p>By clicking
-        <em>Register</em> you agree to our
-        <a href="" target="_blank">terms of service</a>
-
+    <button class="btn btn-info my-4 btn-block" type="submit">Enter</button>
 </form>
 <!-- Sign up form -->
 </div>
