@@ -70,12 +70,30 @@ Image upload
     </div>
 </div>
 
-DESCRIPTION
-<p>What product or service does your business offer?</p>
+  <div class="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      Business days
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Monday</a>
+      <a class="dropdown-item" href="#">Tuesday</a>
+      <a class="dropdown-item" href="#">Wednesday</a>
+      <a class="dropdown-item" href="#">Thursday</a>
+      <a class="dropdown-item" href="#">Friday</a>
+      <a class="dropdown-item" href="#">Saturday</a>
+      <a class="dropdown-item" href="#">Sunday</a>
+      <a class="dropdown-item" href="#">All days</a>
+    </div>
+  </div>
+
+<strong>DESCRIPTION</strong>
+<p>Describe your business. What product or service does your business offer?</p>
   <div class="form-row">
-      <label for="about" style="font-weight: bold">What does your company do?</label>
-      <input type="text" class="form-control" name="about">
-  </div>    
+      <label for="about" type="textarea" style="font-weight: bold"> </label>
+      <br>
+      <textarea name="about" rows="5" cols="150"></textarea>
+  </div>
+<br>   
 <button type="submit" class="btn btn-sm btn-primary">Add My Company</button>
 </form>
 </div>
