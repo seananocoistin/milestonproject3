@@ -1,8 +1,10 @@
 import os
 import json
+import smtplib, ssl
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+
 
 author = ""
 app = Flask(__name__)
@@ -30,7 +32,7 @@ def login():
 @app.route("/log_in", methods=["POST"])
 def log_in():
     if request.method == "POST":
-        if mongo.db.accounts.count_documents({"username":request.form["username"],"password":request.form["password"]})>0:
+        if mongo.db.accounts.find({"username":request.form["username"],"password":request.form["password"]}).count()>0:
             global author
             author=request.form["username"]
             return create()
@@ -54,6 +56,27 @@ def listings():
 @app.route("/mylisting")
 def mylisting():
     return render_template("mylisting.html", tasks=mongo.db.users.find({"author":author}),status=author)
+
+@app.route("/forgot")
+def forgot():
+    return render_template("forgot.html")
+
+@app.route("/forgotemail")
+def forgotemail():
+    if request.method == "POST":
+        user = mongo.db.accounts.find({"email":request.form["email"]})
+        if user.count()>0:
+            port = 465 # For SSL
+            smtp_server = "smtp.gmail.com"
+            sender_email = "info@gmail.com" # Enter your address
+            receiver_email = request.form["email"]
+            password = "123456"
+            message = "Your password is: "+ user["password"]
+
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+                server.login(sender_email, password)
+                server.sendmail(sender_email, receiver_email, message)
 
 @app.route("/create")
 def create():

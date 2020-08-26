@@ -11,14 +11,15 @@
             <div class="col">
             <!-- User name -->
             <label for="username">Username / e-mail address</label>
-            <input type="text" name="username" class="form-control" placeholder="Enter your username here">
+            <input type="text" name="username" required class="form-control" placeholder="Enter your username here">
             <label for="name">Password</label>
-            <input type="password" name="password" class="form-control" placeholder="Password">
+            <input type="password" name="password" required class="form-control" placeholder="Password">
         </div>
     </div>
     <!-- Enter button -->
     <button class="btn btn-info my-4 btn-block" type="submit">Enter</button>
 </form>
+<a style="text-align:center;color:white;" href="{{ url_for('forgot') }}">Forgotten your password?</a>
 </div>
 </div>
 

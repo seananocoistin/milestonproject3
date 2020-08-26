@@ -14,14 +14,13 @@
 <body>
 
     <!-- Background image -->
-    <div style="background-image: url('https://www.osi.ie/wp-content/uploads/2018/08/dublin-skyline.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:100%100%;">
-
+    <div style="background-image: url('https://www.osi.ie/wp-content/uploads/2018/08/dublin-skyline.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:100%100%;">      
+    
     <!-- Navbar -->
                 <nav class="navbar navbar-custom">
-                <a class="navbar-brand" href="{{ url_for('index') }}">
-                <img src="/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-                <a><strong>Acme Business Directory</strong></a>
-                </a>
+                    <div style="background-color:yellow;color: black; margin-left: 50px; padding: 10px; font-size: 30px;font-weight: bold;border: 5px solid green;border-radius:5px">
+                        <a><strong>Acme Business Directory</strong></a>
+                    </div>
                 {% if status %}
                     <h4>Hello again {{status}} :-)</h4>
                 {% endif %}
