@@ -37,7 +37,7 @@ def log_in():
             author=request.form["username"]
             return create()
         else:
-            return signup()
+            return render_template("login.html",loginattempt=True)
 
 @app.route("/logout")
 def logout():
@@ -61,7 +61,7 @@ def mylisting():
 def forgot():
     return render_template("forgot.html")
 
-@app.route("/forgotemail")
+@app.route("/forgotemail", methods=["POST"])
 def forgotemail():
     if request.method == "POST":
         user = mongo.db.accounts.find({"email":request.form["email"]})
@@ -71,12 +71,13 @@ def forgotemail():
             sender_email = "info@gmail.com" # Enter your address
             receiver_email = request.form["email"]
             password = "123456"
-            message = "Your password is: "+ user["password"]
+            """message = "Your password is: "+ user["password"]"""
 
-            context = ssl.create_default_context()
+            """context = ssl.create_default_context()
             with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
                 server.login(sender_email, password)
-                server.sendmail(sender_email, receiver_email, message)
+                server.sendmail(sender_email, receiver_email, message)"""
+            return render_template("forgot.html",send=True,email=receiver_email)
 
 @app.route("/create")
 def create():
