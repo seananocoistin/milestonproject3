@@ -20,12 +20,15 @@
             <input type="text" name="username" required class="form-control" placeholder="Enter your username here">
             <label for="name">Password</label>
             <input type="password" name="password" required class="form-control" id="passWord" placeholder="Password"><br>
-            <input type="checkbox" onclick="showWord()">Show Password
+            <input type="checkbox" onclick="showWord()"> Show Password
         </div>
     </div>
     <!-- Enter button -->
     <button class="btn btn-info my-4 btn-block" type="submit">Enter</button>
 </form>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label><br>
 <a style="text-align:center;color:white;" href="{{ url_for('forgot') }}">Forgotten your password?</a>
 </div>
 </div>
