@@ -19,7 +19,8 @@
             <label for="username">Username / e-mail address</label>
             <input type="text" name="username" required class="form-control" placeholder="Enter your username here">
             <label for="name">Password</label>
-            <input type="password" name="password" required class="form-control" placeholder="Password">
+            <input type="password" name="password" required class="form-control" id="passWord" placeholder="Password"><br>
+            <input type="checkbox" onclick="showWord()">Show Password
         </div>
     </div>
     <!-- Enter button -->
@@ -29,5 +30,15 @@
 </div>
 </div>
 
+<script>
+function showWord() {
+  var x = document.getElementById("passWord");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 
 {% endblock %}

@@ -45,7 +45,7 @@
                     {% if status %}
                         <li class="navbar-brand">
                             <button type="button" class="btn btn-sm btn-danger">
-                                <a class="navbar-link" style="color: white;" href="{{ url_for('logout') }}">Log out</a>
+                                <a class="navbar-link" style="color: white;font-size:18px;padding:8px;" href="{{ url_for('logout') }}">Log out</a>
                             </button>
                         </li>
                     {% else %}    
@@ -54,7 +54,7 @@
                         </li>
                         <li class="navbar-brand">
                             <button type="button" class="btn btn-sm btn-success">
-                                <a class="navbar-link" style="color:white;font-size:18px;padding: 8px;" href="{{ url_for('signup') }}">Register!</a>
+                                <a class="navbar-link" style="color:white;font-size:18px;padding:8px;" href="{{ url_for('signup') }}">Register</a>
                             </button>   
                         </li>
                     {% endif %}
