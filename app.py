@@ -1,6 +1,8 @@
 import os
 import json
 import smtplib, ssl
+import base64
+from bson.binary import Binary
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -90,11 +92,13 @@ def forgotemail():
 def create():
     return render_template("create.html",status=author)
 
-@app.route("/addlisting", methods=["POST"])
+@app.route("/addlisting", methods=["POST","GET"])
 def addlisting():
     if request.method == "POST":
         newlisting = request.form.to_dict()
-        newlisting.update({"author":author})
+        image_file = open(request.files["image"], "r").read()
+        encoded_string = base64.b64encode(image_file)
+        newlisting.update({"author":author,"image":encoded_string})
         mongo.db.listings.insert(newlisting)
         return mylisting()
 
