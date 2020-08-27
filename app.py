@@ -51,18 +51,18 @@ def contact():
 
 @app.route("/listings")
 def listings():
-    return render_template("listings.html", tasks=mongo.db.users.find(),status=author)
+    return render_template("listings.html", tasks=mongo.db.listings.find(),status=author)
 
 @app.route("/mylisting")
 def mylisting():
-    return render_template("mylisting.html", tasks=mongo.db.users.find({"author":author}),status=author)
+    return render_template("mylisting.html", tasks=mongo.db.listings.find({"author":author}),status=author)
 
 @app.route("/deletelisting", methods=["POST"])
 def deletelisting():
     if request.method == "POST":
-        mongo.db.users.remove({"business_name":request.form["business_name"]},{"justOne":True})
+        mongo.db.listings.remove({"business_name":request.form["business_name"]},{"justOne":True})
         
-        return render_template("mylisting.html", tasks=mongo.db.users.find({"author":author}),status=author)
+        return render_template("mylisting.html", tasks=mongo.db.listings.find({"author":author}),status=author)
 
 @app.route("/forgot")
 def forgot():
@@ -95,7 +95,7 @@ def addlisting():
     if request.method == "POST":
         newlisting = request.form.to_dict()
         newlisting.update({"author":author})
-        mongo.db.users.insert(newlisting)
+        mongo.db.listings.insert(newlisting)
         return mylisting()
 
 @app.route("/register", methods=["POST"])

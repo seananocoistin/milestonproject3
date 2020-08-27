@@ -11,12 +11,12 @@
 <div class="container">
 <div style="background-color:whitesmoke;opacity:0.95;color:black;padding:20px;text-align:left">
 <strong>ABOUT</strong>
-<form action='/addlisting' method='post'>
+<form action='/addlisting' method='post' enctype="multipart/form-data">
   <div class="form-row">
       <label for="inputName">What is the name of your business?</label>
       <input type="text" required class="form-control" name="business_name">
 </div>
-
+<br>
 <strong>LOCATION</strong>
 <p>Where is your business located?</p>
     <div class="form-row">
@@ -41,6 +41,7 @@
     </div>
 
 <div>
+<br>
 <strong>CONTACT DETAILS</strong>
 <p>How can customers contact you?</p> 
     <div class="form-row">
@@ -59,22 +60,28 @@
 <br>
 <strong>OPENING HOURS</strong>
 <p>What days does your business operate on?</p>
-  <div class="dropdown">
-    <button type="button" required class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-      BUSINESS DAYS
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Monday</a>
-      <a class="dropdown-item" href="#">Tuesday</a>
-      <a class="dropdown-item" href="#">Wednesday</a>
-      <a class="dropdown-item" href="#">Thursday</a>
-      <a class="dropdown-item" href="#">Friday</a>
-      <a class="dropdown-item" href="#">Saturday</a>
-      <a class="dropdown-item" href="#">Sunday</a>
-      <a class="dropdown-item" href="#">All days</a>
-    </div>
-  </div>
-
+  <input type="checkbox" name="monday" value="Monday">
+  <label for="monday"> Monday</label>
+    <select name="cars" id="cars">
+    <option value="volvo">10.00</option>
+    <option value="saab">12.00</option>
+    <option value="opel">18.00</option>
+    <option value="audi">22.00</option>
+  </select><br>
+  <input type="checkbox" name="tuesday" value="Tuesday">
+  <label for="tuesday"> Tuesday</label><br>
+  <input type="checkbox" name="wednesday" value="Wednesday">
+  <label for="wednesday"> Wednesday</label><br>
+  <input type="checkbox" name="thursday" value="Thursday">
+  <label for="thursday"> Thursday</label><br>
+  <input type="checkbox" name="friday" value="Friday">
+  <label for="friday"> Friday</label><br>
+  <input type="checkbox" name="saturday" value="Saturday">
+  <label for="saturday"> Saturday</label><br>
+  <input type="checkbox" name="sunday" value="Sunday">
+  <label for="sunday"> Sunday</label><br>
+  <input type="checkbox" name="all_days" value="All days">
+  <label for="all_days"> All days</label><br>
 <br>
 <strong>DESCRIPTION</strong>
 <p>Describe your business. What product or service does your business offer?</p>
@@ -87,13 +94,8 @@
 <strong>Image or logo</strong>
 <p>(optional)</p>
 <p>Click on the "Choose File" button to upload a image file:</p>
-
-<form action="/action_page.php">
-  <input type="file" id="myFile" name="filename">
-  <input type="submit">
-</form>
-
-
+<input type="file" id="myFile" name="filename">
+<br>
 <button type="submit" class="btn btn-sm btn-primary" href="#">Add this listing</button>
 </form>
 </div>
