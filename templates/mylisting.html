@@ -42,6 +42,11 @@
             {{task.about}}  
         </div>
     </div>
+        <button type="submit" class="btn btn-sm btn-primary" href="#">Edit this listing</button>
+        <form action="/deletelisting" method="post">
+            <input name="business_name" value="{{ task.business_name }}" type="hidden"/>
+            <button type="submit" class="btn btn-sm btn-primary">Delete this listing</button>
+        </form>
 </div>
 {% endfor %}
 {% else %}

@@ -11,46 +11,33 @@
 <div class="container">
 <div style="background-color:whitesmoke;opacity:0.95;color:black;padding:20px;text-align:left">
 <strong>ABOUT</strong>
-Listing Title
-Add listing name
-
-Category
-Select category
-Your address
-Telephone Number
-Opening Days
-Opening Time
-Closing Time
-Description
-
-Image upload
 <form action='/addlisting' method='post'>
   <div class="form-row">
       <label for="inputName">What is the name of your business?</label>
-      <input type="text" class="form-control" name="business_name">
+      <input type="text" required class="form-control" name="business_name">
 </div>
 
 <strong>LOCATION</strong>
 <p>Where is your business located?</p>
     <div class="form-row">
             <label for="inputAddress" style="font-weight: bold">Address</label>
-            <input type="text" class="form-control" name="address" placeholder="12 Main St">
+            <input type="text" required class="form-control" name="address" placeholder="12 Main St">
     </div>
     <div class="form-row">
             <label for="inputAddress2" style="font-weight: bold">Address 2</label>
-            <input type="text" class="form-control" name="address2" placeholder="Apartment, studio, or floor">
+            <input type="text" required class="form-control" name="address2" placeholder="Apartment, studio, or floor">
     </div>
     <div class="form-row">
             <label for="inputCity" style="font-weight: bold">City/County</label>
-            <input type="text" class="form-control" name="inputCity">
+            <input type="text" required class="form-control" name="inputCity">
     </div>
     <div class="form-row">
             <label for="inputCode" style="font-weight: bold">Postal code</label>
-            <input type="text" class="form-control" name="inputCode">
+            <input type="text" required class="form-control" name="inputCode">
     </div>
     <div class="form-row">
       <label for="inputCode" style="font-weight: bold">Country</label>
-      <input type="text" class="form-control" name="Country">
+      <input type="text" required class="form-control" name="Country">
     </div>
 
 <div>
@@ -58,21 +45,23 @@ Image upload
 <p>How can customers contact you?</p> 
     <div class="form-row">
       <label for="Telephone" style="font-weight: bold">Telephone number</label>
-      <input type="number" class="form-control" name="telephone" placeholder="021 1234567">
+      <input type="number" required class="form-control" name="telephone" placeholder="021 1234567">
     </div>
       <div class="form-row">
       <label for="inputEmail4" style="font-weight: bold">E-mail address</label>
-      <input type="email" class="form-control" name="email" placeholder="info@mycompany.com">
+      <input type="email" required class="form-control" name="email" placeholder="info@mycompany.com">
     </div>
       <div class="form-row">
       <label for="inputEmail4"style="font-weight: bold">Website</label>
-      <input type="text" class="form-control" name="website" placeholder="www.mycompany.com">
+      <input type="text" required class="form-control" name="website" placeholder="www.mycompany.com">
     </div>
 </div>
-
+<br>
+<strong>OPENING HOURS</strong>
+<p>What days does your business operate on?</p>
   <div class="dropdown">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-      Business days
+    <button type="button" required class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      BUSINESS DAYS
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="#">Monday</a>
@@ -86,15 +75,26 @@ Image upload
     </div>
   </div>
 
+<br>
 <strong>DESCRIPTION</strong>
 <p>Describe your business. What product or service does your business offer?</p>
   <div class="form-row">
-      <label for="about" type="textarea" style="font-weight: bold"> </label>
+      <label for="about" required type="textarea" style="font-weight: bold"> </label>
       <br>
       <textarea name="about" rows="5" cols="150"></textarea>
   </div>
-<br>   
-<button type="submit" class="btn btn-sm btn-primary">Add My Company</button>
+<br>
+<strong>Image or logo</strong>
+<p>(optional)</p>
+<p>Click on the "Choose File" button to upload a image file:</p>
+
+<form action="/action_page.php">
+  <input type="file" id="myFile" name="filename">
+  <input type="submit">
+</form>
+
+
+<button type="submit" class="btn btn-sm btn-primary" href="#">Add this listing</button>
 </form>
 </div>
 </div>

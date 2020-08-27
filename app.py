@@ -57,6 +57,13 @@ def listings():
 def mylisting():
     return render_template("mylisting.html", tasks=mongo.db.users.find({"author":author}),status=author)
 
+@app.route("/deletelisting", methods=["POST"])
+def deletelisting():
+    if request.method == "POST":
+        mongo.db.users.remove({"business_name":request.form["business_name"]},{"justOne":True})
+        
+        return render_template("mylisting.html", tasks=mongo.db.users.find({"author":author}),status=author)
+
 @app.route("/forgot")
 def forgot():
     return render_template("forgot.html")
