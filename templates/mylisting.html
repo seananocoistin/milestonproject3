@@ -8,7 +8,7 @@
 {% if tasks.count() %}
 <div class="container" style="background-color:whitesmoke;color:black;padding:20px;display:flex;flex-wrap:wrap">                
 {% for task in tasks %}
-    <div style="padding:20px;text-align:left;border:1px solid gray;border-radius:10px;margin:20px;width:800px">
+    <div style="padding:20px;text-align:left;border:1px solid gray;border-radius:10px;margin:auto;width:800px">
    
         <div class="form-group">
             <h3><i class="fa fa-info" aria-hidden="true"></i> business name</h3>
@@ -16,7 +16,14 @@
         </div>
         <div class="form-group">
             <h3><i class="fa fa-home" aria-hidden="true"></i> address</h3>
-            {{task.address}}   
+            {{task.address}}
+            {{task.address2}}
+            <br>
+            {{task.inputCity}}
+            <br>
+            {{task.inputCode}}
+            <br>
+            {{task.country}}
         </div>
         <div class="form-group">
             <h3><i class="fa fa-phone" aria-hidden="true"></i> telephone number</h3>
@@ -49,7 +56,7 @@
             <input name="about"  value="{{ task.about }}" type="hidden"/>
             <button type="submit" class="btn btn-sm btn-primary">Edit this listing</button>
         </form>
-
+<br>
         <form action="/deletelisting" method="post">
             <input name="business_name" value="{{ task.business_name }}" type="hidden"/>
             <button type="submit" class="btn btn-sm btn-primary">Delete this listing</button>
