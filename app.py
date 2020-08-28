@@ -37,7 +37,7 @@ def log_in():
         if mongo.db.accounts.find({"username":request.form["username"],"password":request.form["password"]}).count()>0:
             global author
             author=request.form["username"]
-            return create()
+            return mylisting()
         else:
             return render_template("login.html",loginattempt=True)
 
@@ -92,14 +92,29 @@ def forgotemail():
 def create():
     return render_template("create.html",status=author)
 
+@app.route("/edit", methods=["POST"])
+def edit():
+    if request.method == "POST":
+        listingtoedit = request.form.to_dict()
+        return render_template("edit.html",status=author,data=listingtoedit)
+
+
 @app.route("/addlisting", methods=["POST","GET"])
 def addlisting():
     if request.method == "POST":
         newlisting = request.form.to_dict()
-        image_file = open(request.files["image"], "r").read()
-        encoded_string = base64.b64encode(image_file)
-        newlisting.update({"author":author,"image":encoded_string})
+        """image_file = open(request.files["image"], "r").read()
+        encoded_string = base64.b64encode(image_file).decode()"""
+        newlisting.update({"author":author})
         mongo.db.listings.insert(newlisting)
+        return mylisting()
+
+@app.route("/editlisting", methods=["POST"])
+def editlisting():
+    if request.method == "POST":
+        newlisting = request.form.to_dict()
+        newlisting.update({"author":author})
+        mongo.db.listings.update_one({"author":author,"business_name":newlisting["business_name"]},{"$set":newlisting})
         return mylisting()
 
 @app.route("/register", methods=["POST"])
