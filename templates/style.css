@@ -5,12 +5,24 @@
   color: white;
 }
 
-.container-homepage {
+.container {
     background-color: whitesmoke;
     padding: 200px;
     margin: 300px;
     text-align: center;
     color: white;
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.navbar .navbar-item{
+    color: white;
+}
+
+.navbar .navbar-item:hover{
+    color: black;
 }
 
 form{

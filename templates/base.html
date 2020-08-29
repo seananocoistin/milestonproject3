@@ -17,7 +17,7 @@
 <body>
 
     <!-- Background image -->
-    <div style="background-image: url('https://www.osi.ie/wp-content/uploads/2018/08/dublin-skyline.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:100%100%;">      
+    <div style="background: url('https://www.osi.ie/wp-content/uploads/2018/08/dublin-skyline.jpg')no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">    
     
     <!-- Navbar -->
                 <nav class="navbar navbar-custom">
@@ -28,34 +28,34 @@
                     <h4>Welcome {{status}}</h4>
                 {% endif %}
                 <ul class="nav justify-content-end">
-                <li class="navbar-brand">
-                        <a class="navbar-link active" style="color: white;" href="{{ url_for('index') }}">Home</a>
+                <li class="navbar-item">
+                        <a class="navbar-link" style="color:forestgreen;font-weight: bold;background-color:white" href="{{ url_for('index') }}">Home</a>
                     </li>                    
-                    <li class="navbar-brand">
-                        <a class="navbar-link" style="color: white;" href="{{ url_for('listings') }}">Listings</a>
+                    <li class="navbar-item">
+                        <a class="navbar-link" style="color: forestgreen;font-weight: bold;background-color:white" href="{{ url_for('listings') }}">Listings</a>
                     </li>                    
                     {% if status %}
-                    <li class="navbar-brand">
-                        <a class="navbar-link" style="color: white;" href="{{ url_for('mylisting') }}">My Listing</a>
+                    <li class="navbar-item">
+                        <a class="navbar-link" style="color:forestgreen;font-weight: bold;background-color:white" href="{{ url_for('mylisting') }}">My Listing</a>
                     </li>
                     {% endif %}
-                    <li class="navbar-brand">
-                        <a class="navbar-link" style="color: white;" href="{{ url_for('about') }}">About</a>
+                    <li class="navbar-item">
+                        <a class="navbar-link" style="color: forestgreen;font-weight: bold;background-color:white" href="{{ url_for('about') }}">About</a>
                     </li>
-                    <li class="navbar-brand">
-                        <a class="navbar-link" style="color: white;" href="{{ url_for('contact') }}">Contact</a>
+                    <li class="navbar-item">
+                        <a class="navbar-link" style="color: forestgreen;font-weight: bold;background-color:white" href="{{ url_for('contact') }}">Contact</a>
                     </li>
                     {% if status %}
-                        <li class="navbar-brand">
-                            <button type="button" class="btn btn-sm btn-danger">
-                                <a class="navbar-link" style="color: white;font-size:18px;padding:8px;" href="{{ url_for('logout') }}">Log out</a>
+                        <li class="navbar-item">
+                            <button type="button" class="btn btn-sm btn-success">
+                                <a class="navbar-link" style="color:white;font-size:18px;padding:8px;" href="{{ url_for('logout') }}">Log out</a>
                             </button>
                         </li>
                     {% else %}    
-                        <li class="navbar-brand">
-                            <a class="navbar-link" style="color: white;" href="{{ url_for('login') }}">Log in</a>
+                        <li class="navbar-item">
+                            <a class="navbar-link" style="color: forestgreen;font-weight: bold;background-color:white" href="{{ url_for('login') }}">Log in</a>
                         </li>
-                        <li class="navbar-brand">
+                        <li class="navbar-item">
                             <button type="button" class="btn btn-sm btn-success">
                                 <a class="navbar-link" style="color:white;font-size:18px;padding:8px;" href="{{ url_for('signup') }}">Register</a>
                             </button>   
