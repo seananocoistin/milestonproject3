@@ -1,23 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
-<div style="background-color:green;color:white;padding:20px;text-align:center">
+<div class="container" style="background-color:green;color:white;padding:40px;margin:auto;text-align:center;width:35%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"">
     <h2 class="display-2">Ready to sign up?</h2>
 </div>
-</div>
 
-<div class="container">
-<div style="background-color:white;color:black;padding:20px;text-align:center">
+<div class="container" style="background-color:white;color:black;padding:10px;margin:auto;text-align:center;width:35%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"">
     <!--Section heading-->
     <h2 class="h1-responsive font-weight-bold text-center my-4">Create an account</h2>
     <p class="text-center w-responsive mx-auto mb-5">Fill out the form below to create an account to begin using the directory</p>
     <p class="text-center w-responsive mx-auto mb-5">By adding your profile to <strong>Acme Business Directory</strong> and keeping your profile up-to-date, you will be promoting yourself to a huge online audience and helping to maintain our owner-verified dataset. After verification, you can add images, a logo, opening hours and more, to your profile.</p>
 </div>
-</div>
 
-<div class="container">
-<div style="background-color:green;color:white;padding:20px;text-align:left">
+<div class="container" style="background-color:green;color:white;padding:40px;margin:auto;text-align:center;width:35%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
 <!-- Sign up form -->
 <p class="h4 mb-4 text-center">Sign up</p>
 <form class="text-left" action="/register" method="post">
@@ -53,7 +48,6 @@
 
 </form>
 <a style="text-align:center;">If you already have an account, <a style="color:white;text-decoration:underline;" href="{{ url_for('login') }}">sign in here</a>.
-</div>
 </div>
 
 {% endblock %}

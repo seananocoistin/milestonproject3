@@ -17,39 +17,4 @@
 </div>
 
 
-{% for task in tasks %}
- Filter the listings
-<div class="container" style="background-color:whitesmoke;color:black;padding:30px;text-align:left;border:1px solid gray;border-radius:10px;margin:auto;width:800px">
-        <div class="form-group">
-            <h3><i class="fa fa-info" aria-hidden="true"></i> business name</h3>
-            {{task.business_name}}   
-        </div>
-        <div class="form-group">
-            <h3><i class="fa fa-home" aria-hidden="true"></i> address</h3>
-            {{task.address}}   
-        </div>
-        <div class="form-group">
-            <h3><i class="fa fa-phone" aria-hidden="true"></i> telephone number</h3>
-            {{task.telephone}}
-        </div>
-        <div class="form-group">
-            <h3><i class="fa fa-laptop" aria-hidden="true"></i> website</h3>
-            {{task.website}}  
-        </div>
-        <div class="form-group">
-            <h3><i class="fa fa-envelope" aria-hidden="true"></i> e-mail address</h3>
-            {{task.email}}  
-        </div>
-        <div class="form-group">
-            <h3><i class="fa fa-clock-o" aria-hidden="true"></i> business hours</h3>
-            {{task.hours}}  
-        </div>
-        <div class="form-group">
-            <h3>about</h3>
-            {{task.about}}  
-        </div>
-</div>
-{% endfor %}
-
-
 {% endblock %}
