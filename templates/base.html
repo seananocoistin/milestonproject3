@@ -4,7 +4,7 @@
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -17,15 +17,12 @@
     
 <body>
     <!-- Background image -->
-    <div style="background: url('https://www.osi.ie/wp-content/uploads/2018/08/dublin-skyline.jpg')no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">    
-            
-    <!-- Back to the top button function -->
-    <button onclick="topFunction()" id="myBtn" title="To the top">&#9650;</button>
+    <div style="background: url('https://www.osi.ie/wp-content/uploads/2018/08/dublin-skyline.jpg')no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">
 
     <!-- Navbar -->
                 <nav class="navbar navbar-custom">
-                    <div style="background-color:rgba(251,255,55,0.8);color: black; padding: 10px; font-size: 30px;font-weight: bold;border: 5px solid green;border-radius:5px">
-                        <a><strong>Acme Business Directory</strong></a>
+                    <div style="background-color:rgba(251,255,55,0.8);color: black; padding: 5px; font-size:20px;font-weight: bold;border-radius:5px">
+                        <a href="{{ url_for('index') }}"><strong>Acme Business Directory</strong></a>
                     </div>
                 {% if status %}
                     <h4>Welcome {{status}}</h4>
@@ -72,9 +69,9 @@
   <!-- Footer menu-->
   <div class="footer-copyright text-center py-3" style="color:white;">Acme Business Directory © 2020</div>
    <div class="footer-centered text-center py-3">
-        <a href="{{ url_for('index') }}" class="active">Home</a>
-        <a href="{{ url_for('about') }}">About</a>
-        <a href="{{ url_for('contact') }}">Contact</a>
+        <a href="{{ url_for('index') }}" style="color:white" class="active">Home</a>
+        <a href="{{ url_for('about') }}" style="color:white">About</a>
+        <a href="{{ url_for('contact') }}" style="color:white">Contact</a>
     </div>
  
     </footer>

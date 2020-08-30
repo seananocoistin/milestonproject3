@@ -56,29 +56,24 @@
 </div>
 <br>
 <strong>OPENING HOURS</strong>
-<p>What days does your business operate on?</p>
-  <input type="checkbox" name="monday" value="Monday">
-  <label for="monday"> Monday</label>
-    <select name="cars" id="cars">
-    <option value="volvo">10.00</option>
-    <option value="saab">12.00</option>
-    <option value="opel">18.00</option>
-    <option value="audi">22.00</option>
-  </select><br>
-  <input type="checkbox" name="tuesday" value="Tuesday">
-  <label for="tuesday"> Tuesday</label><br>
-  <input type="checkbox" name="wednesday" value="Wednesday">
-  <label for="wednesday"> Wednesday</label><br>
-  <input type="checkbox" name="thursday" value="Thursday">
-  <label for="thursday"> Thursday</label><br>
-  <input type="checkbox" name="friday" value="Friday">
-  <label for="friday"> Friday</label><br>
-  <input type="checkbox" name="saturday" value="Saturday">
-  <label for="saturday"> Saturday</label><br>
-  <input type="checkbox" name="sunday" value="Sunday">
-  <label for="sunday"> Sunday</label><br>
-  <input type="checkbox" name="all_days" value="All days">
-  <label for="all_days"> All days</label><br>
+<p>What days and hours does your business operate on?</p>
+
+{% for day in ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday','All days'] %}
+    <input type="checkbox" name="{{day}}" value="{{day}}">
+    <label for="{{day}}">{{day}}</label>
+    <br>
+{% endfor %}
+<select name="startTime">
+    {% for i in range(24) %}
+        <option value="{{i}}.00">{{i}}.00</option>
+    {% endfor %}
+    </select>
+    <select name="endTime">
+    {% for i in range(24) %}
+        <option value="{{i}}.00">{{i}}.00</option>
+    {% endfor %}
+    </select>
+<br>
 <br>
 <strong>DESCRIPTION</strong>
 <p>Describe your business. What product or service does your business offer?</p>
@@ -93,7 +88,7 @@
 <p>Click on the "Choose File" button to upload a image file:</p>
 <input type="file" name="image">
 <br>
-<button type="submit" class="btn btn-sm btn-primary" href="#">Add this listing</button>
+<button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Add this listing</button>
 </form>
 </div>
 </div>

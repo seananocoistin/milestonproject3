@@ -37,7 +37,7 @@
     </div>
     <div class="form-row">
       <label for="inputCode" style="font-weight: bold">Country</label>
-      <input type="text" required class="form-control" name="Country" value="{{data.country}}">
+      <input type="text" required class="form-control" name="country" value="{{data.country}}">
     </div>
 
 <div>
@@ -61,21 +61,21 @@
 <strong>OPENING HOURS</strong>
 <p>What days and hours does your business operate on?</p>
 
-{% for day in ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday','All days'] %}
-    <input type="checkbox" name="{{day}}" value="{{day}}">
-    <label for="{{day}}">{{day}}</label>
-    <br>
+{% for day in ["Monday-Friday",'Saturday','Sunday','All days']%}
+<input type="checkbox" name="{{day}}" value="{{day}}">
+<label for="{{day}}">{{day}}</label>
+<select name="startTime{{day}}">
+{% for i in range(24) %}
+<option value="{{i}}.00">{{i}}.00</option>
 {% endfor %}
-<select name="startTime">
-    {% for i in range(24) %}
-        <option value="{{i}}.00">{{i}}.00</option>
-    {% endfor %}
-    </select>
-    <select name="endTime">
-    {% for i in range(24) %}
-        <option value="{{i}}.00">{{i}}.00</option>
-    {% endfor %}
-    </select>
+</select>
+<select name="endTime{{day}}">
+{% for i in range(24) %}
+<option value="{{i}}.00">{{i}}.00</option>
+{% endfor %}
+</select>
+<br>
+{% endfor %}
 <br>
 <br>
 <strong>DESCRIPTION</strong>

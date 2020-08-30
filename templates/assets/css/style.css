@@ -1,29 +1,11 @@
-.footer mt-auto py-3 {
-  background-color: #777;
-  padding: 10px;
-  text-align: center;
-  color: white;
-}
-
 .container {
-    background-color: whitesmoke;
+    background-color: white;
     padding: 200px;
     margin: 300px;
     text-align: center;
     color: white;
 }
 
-.navbar {
-    background-color: transparent;
-}
-
-.navbar .navbar-item{
-    color: white;
-}
-
-.navbar .navbar-item:hover{
-    color: black;
-}
 
 form{
     width: 500px;
@@ -33,69 +15,6 @@ form{
   box-sizing: border-box;
 }
 
-.form-control {
-  font-family: "FontAwesome"
-}
-
 body {
   font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.row {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-
-.backtotop {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-#myBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 5px;
-    z-index: 99;
-    font-size: 18px;
-    border: none;
-    outline: none;
-    background-color: #FF7F50;
-    color: white;
-    cursor: pointer;
-    height: 30px;
-    width: 30px;
-    border-radius: 4px;
-}
-#myBtn:hover {
-    background-color: forestgreen;
 }

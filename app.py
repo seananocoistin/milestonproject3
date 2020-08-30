@@ -2,6 +2,7 @@ import os
 import json
 import smtplib, ssl
 import base64
+import datetime
 from bson.binary import Binary
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
@@ -22,7 +23,8 @@ def index():
 @app.route("/search", methods=["POST"])
 def search():
     if request.method == "POST":
-        return render_template("listings.html",tasks=mongo.db.listings.find({"business_name":request.form["search"]}),status=author)
+        listings = mongo.db.listings.find({"business_name": { '$regex': ".*"+request.form["search"] +".*"} })
+        return render_template("listings.html",tasks=listings,status=author)
 
 @app.route("/about")
 def about():
@@ -62,7 +64,9 @@ def listings():
 
 @app.route("/mylisting")
 def mylisting():
-    return render_template("mylisting.html", tasks=mongo.db.listings.find({"author":author}),status=author)
+    now = datetime.datetime.now().strftime("%H")
+    today = datetime.datetime.now().strftime("%w")
+    return render_template("mylisting.html", tasks=mongo.db.listings.find({"author":author}),status=author,today=int(today),int=float,now=int(now))
 
 @app.route("/deletelisting", methods=["POST"])
 def deletelisting():
