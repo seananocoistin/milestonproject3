@@ -7,8 +7,8 @@
         <div class="searchbox">
                 <label for="search"><h1>What are you looking for?</h1></label>
         </div>
-                <form>
-                    <input type="text" style="width:50%;border-radius:5px;padding:8px" placeholder="I'm looking for..." name="search">
+                <form method="post" action="/search">
+                    <input type="text" style="color:black;width:50%;border-radius:5px;padding:8px" placeholder="I'm looking for..." name="search">
                     <button type="submit"><i class="fa fa-search" style="border-radius:8px;padding:10px"></i></button>
                 </form>
                 <br>
@@ -16,5 +16,44 @@
     </div>
 </div>
 
+<div style="display:flex;flex-wrap:wrap;justify-content:center">
+{% for task in tasks %}
+
+<div class="container" style="background-color:whitesmoke;color:black;padding:30px;text-align:left;border:1px solid gray;margin:10px;width:300px">
+        <div class="form-group">
+            <h3><i class="fa fa-info" aria-hidden="true"></i> business name</h3>
+            {{task.business_name}}   
+        </div>
+        <div class="form-group">
+            <h3><i class="fa fa-home" aria-hidden="true"></i> address</h3>
+            {{task.address}}
+            {{task.address2}}   
+            {{task.city}}   
+            {{task.inputCode}}   
+            {{task.country}}   
+        </div>
+        <div class="form-group">
+            <h3><i class="fa fa-phone" aria-hidden="true"></i> telephone number</h3>
+            {{task.telephone}}
+        </div>
+        <div class="form-group">
+            <h3><i class="fa fa-laptop" aria-hidden="true"></i> website</h3>
+            {{task.website}}  
+        </div>
+        <div class="form-group">
+            <h3><i class="fa fa-envelope" aria-hidden="true"></i> e-mail address</h3>
+            {{task.email}}  
+        </div>
+        <div class="form-group">
+            <h3><i class="fa fa-clock-o" aria-hidden="true"></i> business hours</h3>
+            {{task.hours}}  
+        </div>
+        <div class="form-group">
+            <h3>about</h3>
+            {{task.about}}  
+        </div>
+</div>
+{% endfor %}
+</div>
 
 {% endblock %}

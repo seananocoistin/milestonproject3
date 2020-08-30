@@ -2,22 +2,24 @@
 {% block content %}
 
 <div class="container">
-    <div style="background-color:green;color:white;padding:20px;margin:25px 12px;text-align:center">
+    <div style="background-color:green;color:white;padding:20px;margin:25px auto;width:70%;text-align:center">
         <div class="searchbox">
                 <label for="search"><h1>Search the listings below</h1></label>
         </div>
                 <form>
-                    <input type="text" style="width:40%;border-radius:5px;padding:8px" placeholder="I'm looking for..." name="search">
+                    <input type="text" style="width:80%;border-radius:5px;padding:8px" placeholder="I'm looking for..." name="search">
                     <button type="submit"><i class="fa fa-search" style="border-radius:8px;padding:10px"></i></button>
                 </form>
                 <br>
                 <p><span>e.g. an accountant, a photographer, etc.</span></p>
+                Filter the listings
     </div>
 </div>
-                
+
+<div style="display:flex;flex-wrap:wrap;justify-content:center">
 {% for task in tasks %}
- Filter the listings
-<div class="container" style="background-color:whitesmoke;color:black;padding:30px;text-align:left;border:1px solid gray;border-radius:10px;margin:auto;width:800px">
+
+<div class="container" style="background-color:whitesmoke;color:black;padding:30px;text-align:left;border:1px solid gray;border-radius:10px;margin:10px;width:300px">
         <div class="form-group">
             <h3><i class="fa fa-info" aria-hidden="true"></i> business name</h3>
             {{task.business_name}}   
@@ -48,5 +50,5 @@
         </div>
 </div>
 {% endfor %}
-
+</div>
 {% endblock %}

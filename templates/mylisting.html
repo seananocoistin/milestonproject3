@@ -6,9 +6,9 @@
 </div>
 
 {% if tasks.count() %}
-<div class="container" style="background-color:whitesmoke;color:black;padding:20px;display:flex;flex-wrap:wrap">                
+<div class="container" style="background-color:white;color:black;padding:20px;display:flex;flex-wrap:wrap">                
 {% for task in tasks %}
-    <div style="padding:20px;text-align:left;border:1px solid gray;border-radius:10px;margin:auto;width:800px">
+    <div style="padding:20px;text-align:left;border:1px solid gray;margin:auto;width:800px">
    
         <div class="form-group">
             <h3><i class="fa fa-info" aria-hidden="true"></i> business name</h3>
@@ -52,14 +52,14 @@
             <input name="telephone"  value="{{ task.telephone }}" type="hidden"/>
             <input name="website"  value="{{ task.website }}" type="hidden"/>
             <input name="email"  value="{{ task.email }}" type="hidden"/>
-            <input name="hours"  value="{{ task.hours}}" type="hidden"/>
+            <input name="hours"  value="{{ task.hours }}" type="hidden"/>
             <input name="about"  value="{{ task.about }}" type="hidden"/>
-            <button type="submit" class="btn btn-sm btn-primary">Edit this listing</button>
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this listing</button>
         </form>
 <br>
         <form action="/deletelisting" method="post">
             <input name="business_name" value="{{ task.business_name }}" type="hidden"/>
-            <button type="submit" class="btn btn-sm btn-primary">Delete this listing</button>
+            <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete this listing</button>
         </form>
     </div>
 {% endfor %}

@@ -29,36 +29,32 @@
                 {% endif %}
                 <ul class="nav justify-content-end">
                 <li class="navbar-item">
-                        <a class="navbar-link" style="color:forestgreen;font-weight: bold;background-color:white" href="{{ url_for('index') }}">Home</a>
+                        <a class="navbar-link" style="color:forestgreen;font-weight: bold;background-color:white" href="{{ url_for('index') }}"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
                     </li>                    
                     <li class="navbar-item">
-                        <a class="navbar-link" style="color: forestgreen;font-weight: bold;background-color:white" href="{{ url_for('listings') }}">Listings</a>
+                        <a class="navbar-link" style="color: forestgreen;font-weight: bold;background-color:white" href="{{ url_for('listings') }}"><i class="fa fa-list" aria-hidden="true"></i> Listings</a>
                     </li>                    
                     {% if status %}
                     <li class="navbar-item">
-                        <a class="navbar-link" style="color:forestgreen;font-weight: bold;background-color:white" href="{{ url_for('mylisting') }}">My Listing</a>
+                        <a class="navbar-link" style="color:forestgreen;font-weight: bold;background-color:white" href="{{ url_for('mylisting') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> My Listing</a>
                     </li>
                     {% endif %}
                     <li class="navbar-item">
-                        <a class="navbar-link" style="color: forestgreen;font-weight: bold;background-color:white" href="{{ url_for('about') }}">About</a>
+                        <a class="navbar-link" style="color: forestgreen;font-weight: bold;background-color:white" href="{{ url_for('about') }}"><i class="fa fa-globe" aria-hidden="true"></i> About</a>
                     </li>
                     <li class="navbar-item">
-                        <a class="navbar-link" style="color: forestgreen;font-weight: bold;background-color:white" href="{{ url_for('contact') }}">Contact</a>
+                        <a class="navbar-link" style="color: forestgreen;font-weight: bold;background-color:white" href="{{ url_for('contact') }}"> <i class="fa fa-envelope" aria-hidden="true"></i> Contact</a>
                     </li>
                     {% if status %}
                         <li class="navbar-item">
-                            <button type="button" class="btn btn-sm btn-success">
-                                <a class="navbar-link" style="color:white;font-size:18px;padding:8px;" href="{{ url_for('logout') }}">Log out</a>
-                            </button>
+                            <a class="navbar-link" style="color:white;font-weight:bold;background-color:forestgreen;" href="{{ url_for('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</a>
                         </li>
                     {% else %}    
                         <li class="navbar-item">
-                            <a class="navbar-link" style="color: forestgreen;font-weight: bold;background-color:white" href="{{ url_for('login') }}">Log in</a>
+                            <a class="navbar-link" style="color:forestgreen;font-weight:bold;background-color:white" href="{{ url_for('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</a>
                         </li>
                         <li class="navbar-item">
-                            <button type="button" class="btn btn-sm btn-success">
-                                <a class="navbar-link" style="color:white;font-size:18px;padding:8px;" href="{{ url_for('signup') }}">Register</a>
-                            </button>   
+                            <a class="navbar-link" style="color:white;font-weight:bold;background-color:forestgreen;" href="{{ url_for('signup') }}"><i class="fa fa-check" aria-hidden="true"></i> Register</a>
                         </li>
                     {% endif %}
                 </ul>

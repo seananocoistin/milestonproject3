@@ -17,7 +17,12 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    return render_template("index.html",status=author)
+    return render_template("index.html",tasks=mongo.db.listings.find(),status=author)
+
+@app.route("/search", methods=["POST"])
+def search():
+    if request.method == "POST":
+        return render_template("listings.html",tasks=mongo.db.listings.find({"business_name":request.form["search"]}),status=author)
 
 @app.route("/about")
 def about():
