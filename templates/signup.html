@@ -19,9 +19,9 @@
     <div class="form-row mb-4">
             <div class="col">
             <!-- User name -->
-            <label for="username">Username</label>
+            <label for="username"><i class="fa fa-user" aria-hidden="true"></i> Username</label>
             <input type="text" name="username" required class="form-control" placeholder="Enter a username here">
-            <label for="emailaddress">E-mail address</label>
+            <label for="emailaddress"><i class="fa fa-envelope" aria-hidden="true"></i> E-mail address</label>
             <input type="email" name="email" required class="form-control" placeholder="Enter an e-mail address">
         </div>
     </div>
@@ -29,16 +29,16 @@
 <div class="form-row mb-4">
     <div class="col">
             <!-- Password -->
-            <label for="name">Create a password</label>
+            <label for="name"><i class="fa fa-key" aria-hidden="true"></i> Create a password</label>
             <input type="password" required name="password" class="form-control" placeholder="Password">
-            <label for="name">Retype your password</label>
+            <label for="name"><i class="fa fa-key" aria-hidden="true"></i> Retype your password</label>
             <input type="password" required name="password" class="form-control" placeholder="Password">
         </div>
 </div>
 
 
     <!-- Sign up button -->
-    <button class="btn btn-info my-4 btn-block" type="submit">Register</button>
+    <button class="btn btn-info my-4 btn-block" type="submit"><i class="fa fa-plus" aria-hidden="true"></i> Register</button>
 
 </form>
 <a style="text-align:center;">If you already have an account, <a style="color:white;text-decoration:underline;" href="{{ url_for('login') }}">sign in here</a>.
