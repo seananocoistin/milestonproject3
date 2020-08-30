@@ -7,9 +7,10 @@
 
 
 <div class="container" style="width:600px;margin: 0 auto;background-color:whitesmoke;color:black;padding:10px;text-align:left">
-<strong>ABOUT</strong>
+
 <form action='/addlisting' method='post' enctype="multipart/form-data" style="width:500px;margin: 0 auto;">
-  <div class="form-row">
+<strong>ABOUT</strong>  
+<div class="form-row">
       <label for="inputName">What is the name of your business?</label>
       <input type="text" required class="form-control" name="business_name">
 </div>
@@ -58,23 +59,24 @@
 <strong>OPENING HOURS</strong>
 <p>What days and hours does your business operate on?</p>
 
-{% for day in ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday','All days'] %}
-    <input type="checkbox" name="{{day}}" value="{{day}}">
-    <label for="{{day}}">{{day}}</label>
-    <br>
+{% for day in ["Monday-Friday",'Saturday','Sunday','All days']%}
+<input type="checkbox" name="{{day}}" value="{{day}}">
+<label for="{{day}}">{{day}}</label>
+<select name="startTime{{day}}">
+{% for i in range(24) %}
+<option value="{{i}}.00">{{i}}.00</option>
 {% endfor %}
-<select name="startTime">
-    {% for i in range(24) %}
-        <option value="{{i}}.00">{{i}}.00</option>
-    {% endfor %}
-    </select>
-    <select name="endTime">
-    {% for i in range(24) %}
-        <option value="{{i}}.00">{{i}}.00</option>
-    {% endfor %}
-    </select>
+</select>
+<select name="endTime{{day}}">
+{% for i in range(24) %}
+<option value="{{i}}.00">{{i}}.00</option>
+{% endfor %}
+</select>
+<br>
+{% endfor %}
 <br>
 <br>
+
 <strong>DESCRIPTION</strong>
 <p>Describe your business. What product or service does your business offer?</p>
   <div class="form-row">

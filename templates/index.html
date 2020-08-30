@@ -3,7 +3,7 @@
 
 <!-- Search box -->
 <div class="container">
-    <div style="background-color:green;color:white;padding:20px;margin:200px 120px;text-align:center">
+    <div style="background-color:green;color:white;padding:20px;margin:25px;text-align:center">
         <div class="searchbox">
                 <label for="search"><h1>What are you looking for?</h1></label>
         </div>
@@ -18,75 +18,11 @@
     </div>
 </div>
 
-<div class="container" style="background-colour:white;width:100%;color:white">
-</div>
-
-<section class="carousel" aria-label="Gallery">
-  <ol class="carousel__viewport">
-    <li id="carousel__slide1"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper">
-        <a href="#carousel__slide4"
-           class="carousel__prev">Go to last slide</a>
-        <a href="#carousel__slide2"
-           class="carousel__next">Go to next slide</a>
-      </div>
-    </li>
-    <li id="carousel__slide2"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide1"
-         class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide3"
-         class="carousel__next">Go to next slide</a>
-    </li>
-    <li id="carousel__slide3"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide2"
-         class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide4"
-         class="carousel__next">Go to next slide</a>
-    </li>
-    <li id="carousel__slide4"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide3"
-         class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide1"
-         class="carousel__next">Go to first slide</a>
-    </li>
-  </ol>
-  <aside class="carousel__navigation">
-    <ol class="carousel__navigation-list">
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide1"
-           class="carousel__navigation-button">Go to slide 1</a>
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide2"
-           class="carousel__navigation-button">Go to slide 2</a>
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide3"
-           class="carousel__navigation-button">Go to slide 3</a>
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide4"
-           class="carousel__navigation-button">Go to slide 4</a>
-      </li>
-    </ol>
-  </aside>
-</section>
 
 <div style="display:flex;flex-wrap:wrap;justify-content:center">
-{% for task in tasks %}
 
-<div class="container" style="background-color:white;color:black;padding:30px;text-align:left;border:3px solid lightgray;margin:10px;width:300px">
+{% for task in tasks %}
+<div class="container" style="background-color:white;color:black;padding:30px;text-align:left;border:1px solid lightgray;border-radius:3px;margin:10px;width:300px">
         <div class="form-group">
            <h4><i class="fa fa-info" aria-hidden="true"></i><strong> {{task.business_name}}</strong></h4>
         </div>
