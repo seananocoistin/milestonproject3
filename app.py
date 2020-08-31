@@ -3,6 +3,8 @@ import json
 import smtplib, ssl
 import base64
 import datetime
+if os.path.exists("env.py"):
+  import env
 from bson.binary import Binary
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
@@ -11,8 +13,7 @@ from bson.objectid import ObjectId
 
 author = ""
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = 'acmebd'
-app.config["MONGO_URI"] = 'mongodb+srv://stiurthoir:b1o2l3l4i5x6@cluster0-gaug0.mongodb.net/acmebd?retryWrites=true&w=majority'
+app.config["MONGO_URI"]= os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
 
@@ -24,9 +25,11 @@ def index():
 
 @app.route("/search", methods=["POST"])
 def search():
+    now = datetime.datetime.now().strftime("%H")
+    today = datetime.datetime.now().strftime("%w")
     if request.method == "POST":
-        listings = mongo.db.listings.find({"business_name": { '$regex': ".*"+request.form["search"] +".*"} })
-        return render_template("listings.html",tasks=listings,status=author)
+        listings = mongo.db.listings.find({"business_name": { '$regex': ".*"+request.form["search"] +".*", '$options' : 'i'} })
+        return render_template("listings.html",tasks=listings,status=author,today=int(today),int=float,now=int(now))
 
 @app.route("/about")
 def about():
