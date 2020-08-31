@@ -13,15 +13,15 @@
      {% endif %}
 
 <form class="text-left" action="/log_in" method="post">
-<label for="username">Username / e-mail address</label>
+<label>Username / e-mail address</label>
     <div class="input-group">
       <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
       <input type="text" name="username" required class="form-control" placeholder="Enter your username here">
     </div>
-    <label for="name">Password</label>
+    <label>Password</label>
     <div class="input-group">
       <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-      <input type="password" name="password" required class="form-control" id="passWord" placeholder="Password"><br>
+      <input type="password" name="password" required class="form-control" id="passWord" placeholder="Password">
       </div>
       <input type="checkbox" onclick="showWord()"> Show Password
     <!-- Enter button -->
@@ -29,7 +29,8 @@
 </form>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label><br>
+      </label>
+      <br>
 <a style="text-align:center;color:white;" href="{{ url_for('forgot') }}">Forgotten your password?</a>
 </div>
 </div>
