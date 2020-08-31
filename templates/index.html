@@ -48,6 +48,7 @@
         </div>
         <div class="form-group">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <br>
         {% for day in ["Monday-Friday","Saturday","Sunday","All days"] %}
         {% if task[day] and task["endTime"+day]!="0.00" %}
         {{day}}: {{task["startTime"+day]}}-{{task["endTime"+day]}}<br/>
