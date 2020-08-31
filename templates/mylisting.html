@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container" style="background-color:green;color:white;padding:20px;text-align:center">
+        <h2 class="display-2">Your listing</h2>
+</div>
+
+{% if tasks.count() %}
+<div class="container" style="background-color:white;color:black;padding:20px;display:flex;flex-wrap:wrap">                
+{% for task in tasks %}
+    <div style="padding:20px;text-align:left;border:1px solid gray;margin:auto;width:500px">
+   
+        <div class="form-group">
+            <h3><i class="fa fa-info" aria-hidden="true"></i> Business name</h3>
+            {{task.business_name}}   
+        </div>
+        <div class="form-group">
+            <h3><i class="fa fa-home" aria-hidden="true"></i> Address</h3>
+            {{task.address}}
+            <br>
+            {{task.address2}}
+            <br>
+            {{task.inputCity}}
+            <br>
+            {{task.inputCode}}
+            <br>
+            {{task.Country}}
+        </div>
+        <div class="form-group">
+            <h3><i class="fa fa-phone" aria-hidden="true"></i> Telephone number</h3>
+            {{task.telephone}}
+        </div>
+        <div class="form-group">
+            <h3><i class="fa fa-laptop" aria-hidden="true"></i> Website</h3>
+            {{task.website}}  
+        </div>
+        <div class="form-group">
+            <h3><i class="fa fa-envelope" aria-hidden="true"></i> e-mail address</h3>
+            {{task.email}}  
+        </div>
+        <div class="form-group">
+        <h3><i class="fa fa-clock-o" aria-hidden="true"></i> Business hours</h3>
+        {% for day in ["Monday-Friday","Saturday","Sunday","All days"] %}
+        {% if task[day] and task["endTime"+day]!="0.00" %}
+        {{day}}: {{task["startTime"+day]}}-{{task["endTime"+day]}}<br/>
+        {% endif %}
+
+        {% if day == "Monday-Friday" and today >0 and today<6 and task["Monday-Friday"] and task["endTime"+day]!="0.00" %}
+
+        {% if int(task["startTime"+day])<now and int(task["endTime"+day])>now %}
+            <div>
+            <span style="background-color:green;color:white;padding:5px;margin-top:15px;border-radius:5px;">Open</span>
+            </div>
+        {% else %}
+                <div>
+                <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
+                </div>
+        {% endif %}
+        {% elif day == "Saturday" and today == 6 and task["Saturday"] and task["endTime"+day]!="0.00" %}
+        {% if int(task["startTime"+day])<now and int(task["endTime"+day])>now %}
+            <div>
+            <span style="background-color:green;color:white;padding:5px;margin-top:15px;border-radius:5px;">Open</span>
+            </div>
+        {% else %}
+                <div>
+                <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
+                </div>
+        {% endif %}
+        {% elif day == "Sunday" and today == 0 and task["Sunday"] and task["endTime"+day]!="0.00" %}
+        {% if int(task["startTime"+day])<now and int(task["endTime"+day])>now %}
+            <div>
+            <span style="background-color:green;color:white;padding:5px;margin-top:15px;border-radius:5px;">Open</span>
+            </div>
+        {% else %}
+                <div>
+                <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
+                </div>
+        {% endif %}
+        {% elif day == "All days" and task["All days"] and task["endTime"+day]!="0.00" %}
+        {% if int(task["startTime"+day])<now and int(task["endTime"+day])>now %}
+            <div>
+            <span style="background-color:green;color:white;padding:5px;margin-top:15px;border-radius:5px;">Open</span>
+            </div>
+        {%else%}
+                <div>
+                <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
+                </div>
+        {%endif%}
+{%endif%}
+{%endfor%}
+        </div>
+
+        <div class="form-group">
+            <h3>About</h3>
+            {{task.about}}  
+        </div>
+
+        <form action="/edit" method="post">
+            <input name="business_name"  value="{{ task.business_name }}" type="hidden"/>
+            <input name="address"  value="{{ task.address }}" type="hidden"/>
+            <input name="address2"  value="{{ task.address2 }}" type="hidden"/>
+            <input name="inputCity"  value="{{ task.inputCity }}" type="hidden"/>
+            <input name="inputCode"  value="{{ task.inputCode }}" type="hidden"/>
+            <input name="country"  value="{{ task.Country }}" type="hidden"/>
+            <input name="telephone"  value="{{ task.telephone }}" type="hidden"/>
+            <input name="website"  value="{{ task.website }}" type="hidden"/>
+            <input name="email"  value="{{ task.email }}" type="hidden"/>
+            <input name="hours"  value="{{ task.hours }}" type="hidden"/>
+            <input name="about"  value="{{ task.about }}" type="hidden"/>
+            {% for day in ["Monday-Friday","Saturday","Sunday","All days"]%}
+                <input name="{{task[day]}}" value="{{task[day]}}" type="hidden">
+                <input name="{{task["startTime"+day]}}" value="{{task["startTime"+day]}}" type="hidden">
+                <input name="{{task["endTime"+day]}}" value="{{task["endTime"+day]}}" type="hidden">
+            {% endfor %}
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this listing</button>
+        </form>
+        <br>
+        <form action="/deletelisting" method="post">
+            <input name="business_name" value="{{ task.business_name }}" type="hidden"/>
+            <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete this listing</button>
+        </form>
+    </div>
+{% endfor %}
+</div>
+{% else %}
+
+<div class="container" style="background-color:white;color:black;padding:20px;display:flex;flex-wrap:wrap"> 
+    You have not created a listing yet. You can create a new listing <a href="{{ url_for('create') }}">here</a>.
+</div>
+{% endif %}
+
+{% endblock %}

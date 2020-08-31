@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container" style="background-color:green;color:white;padding:40px;margin:auto;text-align:center;width:35%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <h2 class="display-2">Contact us</h2>
+</div>
+
+<div class="container" style="background-color:white;color:black;padding:40px;margin:auto;text-align:center;width:35%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Do you have any questions?</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive font-weight-bold mx-auto mb-5">Please do not hesitate to contact us. We will reply to you as soon as possible.</p>
+</div>
+
+
+
+<div class="container" style="background-color:green;color:white;padding:40px;margin:auto;text-align:left;width:35%;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+<form>
+<div class="form-group">
+    <label><i class="fa fa-user" aria-hidden="true"></i> Your name</label>
+    <input type="text" class="form-control" required  placeholder="e.g. Aisling O'Toole">
+  </div>
+  <div class="form-group">
+    <label><i class="fa fa-building" aria-hidden="true"></i> Business name</label>
+    <input type="text" class="form-control" required id="business" placeholder="Enter the name of your business">
+  </div>
+  <div class="form-group">
+    <label><i class="fa fa-at" aria-hidden="true"></i> E-mail address</label>
+    <input type="email" class="form-control" placeholder="info@mycompany.com">
+  </div>
+  <div class="form-group">
+    <label><i class="fa fa-question-circle" aria-hidden="true"></i> Subject</label>
+    <input type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label><i class="fa fa-envelope" aria-hidden="true"></i> Your message</label>
+    <br>
+    <textarea name="message" rows="4" class="form-control md-textarea" placeholder="Write your message here..."></textarea>
+    </div>
+  <button type="submit" class="btn btn-primary">Send Message</button>
+</form>
+</div>
+
+
+{% endblock %}

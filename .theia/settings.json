@@ -4,5 +4,6 @@
    "python.linting.pep8Enabled": false,
    "python.linting.flake8Enabled": true,
     "python.terminal.activateEnvironment": false,
-    "python.pythonPath": "venv/bin/python3"
+    "python.pythonPath": "venv/bin/python3",
+    "editor.autoSave": "on"
 }
