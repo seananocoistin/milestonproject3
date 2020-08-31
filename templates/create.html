@@ -11,30 +11,30 @@
 <form action='/addlisting' method='post' enctype="multipart/form-data" style="width:500px;margin: 0 auto;">
 <strong>ABOUT</strong>  
 <div class="form-row">
-      <label for="inputName">What is the name of your business?</label>
+      <label>What is the name of your business?</label>
       <input type="text" required class="form-control" name="business_name">
 </div>
 <br>
 <strong>LOCATION</strong>
 <p>Where is your business located?</p>
     <div class="form-row">
-            <label for="inputAddress" style="font-weight: bold">Address</label>
+            <label style="font-weight: bold">Address</label>
             <input type="text" required class="form-control" name="address" placeholder="12 Main St">
     </div>
     <div class="form-row">
-            <label for="inputAddress2" style="font-weight: bold">Address 2</label>
+            <label style="font-weight: bold">Address 2</label>
             <input type="text" class="form-control" name="address2" placeholder="Apartment, studio, or floor">
     </div>
     <div class="form-row">
-            <label for="inputCity" style="font-weight: bold">City/County</label>
+            <label style="font-weight: bold">City/County</label>
             <input type="text" required class="form-control" name="inputCity">
     </div>
     <div class="form-row">
-            <label for="inputCode" style="font-weight: bold">Postal code</label>
+            <label style="font-weight: bold">Postal code</label>
             <input type="text" required class="form-control" name="inputCode">
     </div>
     <div class="form-row">
-      <label for="inputCode" style="font-weight: bold">Country</label>
+      <label style="font-weight: bold">Country</label>
       <input type="text" required class="form-control" name="Country">
     </div>
 
@@ -43,15 +43,15 @@
 <strong>CONTACT DETAILS</strong>
 <p>How can customers contact you?</p> 
     <div class="form-row">
-      <label for="Telephone" style="font-weight: bold">Telephone number</label>
+      <label style="font-weight: bold">Telephone number</label>
       <input type="number" required class="form-control" name="telephone" placeholder="021 1234567">
     </div>
       <div class="form-row">
-      <label for="inputEmail4" style="font-weight: bold">E-mail address</label>
+      <label style="font-weight:bold">E-mail address</label>
       <input type="email" required class="form-control" name="email" placeholder="info@mycompany.com">
     </div>
       <div class="form-row">
-      <label for="inputEmail4"style="font-weight: bold">Website</label>
+      <label style="font-weight: bold">Website</label>
       <input type="text" required class="form-control" name="website" placeholder="www.mycompany.com">
     </div>
 </div>
@@ -59,9 +59,9 @@
 <strong>OPENING HOURS</strong>
 <p>What days and hours does your business operate on?</p>
 
-{% for day in ["Monday-Friday",'Saturday','Sunday','All days']%}
+{% for day in ["Monday-Friday","Saturday","Sunday", "All days"]%}
 <input type="checkbox" name="{{day}}" value="{{day}}">
-<label for="{{day}}">{{day}}</label>
+<label>{{day}}</label>
 <select name="startTime{{day}}">
 {% for i in range(24) %}
 <option value="{{i}}.00">{{i}}.00</option>
@@ -79,15 +79,12 @@
 
 <strong>DESCRIPTION</strong>
 <p>Describe your business. What product or service does your business offer?</p>
-  <div class="form-row">
-      <label for="about" required type="textarea" style="font-weight: bold"> </label>
-      <br>
-      <textarea name="about" rows="5" cols="150"></textarea>
+  <div>
+      <textarea name="about" rows="5" cols="70"></textarea>
   </div>
 <br>
 <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Add this listing</button>
 </form>
-</div>
 </div>
 
 {% endblock %}

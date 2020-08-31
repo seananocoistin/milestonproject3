@@ -107,14 +107,12 @@
             <input name="email"  value="{{ task.email }}" type="hidden"/>
             <input name="hours"  value="{{ task.hours }}" type="hidden"/>
             <input name="about"  value="{{ task.about }}" type="hidden"/>
-            {% for day in ["Monday-Friday",'Saturday','Sunday','All days']%}
+            {% for day in ["Monday-Friday","Saturday","Sunday","All days"]%}
                 <input name="{{task[day]}}" value="{{task[day]}}" type="hidden">
                 <input name="{{task["startTime"+day]}}" value="{{task["startTime"+day]}}" type="hidden">
                 <input name="{{task["endTime"+day]}}" value="{{task["endTime"+day]}}" type="hidden">
             {% endfor %}
-            <div style="justify-content: center;">
             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this listing</button>
-            </div>
         </form>
         <br>
         <form action="/deletelisting" method="post">
