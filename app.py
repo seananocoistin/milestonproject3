@@ -18,7 +18,9 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    return render_template("index.html",tasks=mongo.db.listings.find(),status=author)
+    now = datetime.datetime.now().strftime("%H")
+    today = datetime.datetime.now().strftime("%w")
+    return render_template("index.html",tasks=mongo.db.listings.find(),status=author,today=int(today),int=float,now=int(now))
 
 @app.route("/search", methods=["POST"])
 def search():
@@ -60,7 +62,9 @@ def contact():
 
 @app.route("/listings")
 def listings():
-    return render_template("listings.html", tasks=mongo.db.listings.find(),status=author)
+    now = datetime.datetime.now().strftime("%H")
+    today = datetime.datetime.now().strftime("%w")
+    return render_template("listings.html", tasks=mongo.db.listings.find(),status=author,today=int(today),int=float,now=int(now))
 
 @app.route("/mylisting")
 def mylisting():

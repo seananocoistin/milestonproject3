@@ -26,14 +26,16 @@ The objective of this project is to create a Business Directory for **B2B** (*bu
 
 ### Built with
 The technologies that were used in the project were:
-* [Gitpod](http://www.gitpod.io/)
-* [Bootstrap](https://getbootstrap.com/)
-* [CSS validator](https://jigsaw.w3.org/css-validator/)
-* [HTML validator](https://validator.w3.org/)
-* [Heroku](https://www.heroku.com)
-* [MongoDB](https://www.mongodb.com/)
-* [Flask](https://flask.palletsprojects.com/en/1.1.x/)
-* [Balsamiq Wireframes](https://balsamiq.com/wireframes/)
+* [Gitpod](http://www.gitpod.io/) - used for the creation and designing of the website.
+* [Github](http://www.github.com/) - used to host the project.
+* [Bootstrap](https://getbootstrap.com/) - used to style and build the website.
+* [CSS validator](https://jigsaw.w3.org/css-validator/) - used to validate the CSS code.
+* [HTML validator](https://validator.w3.org/) - used to valid the HTML code.
+* [Heroku](https://www.heroku.com) - used to host the final site.
+* [MongoDB](https://www.mongodb.com/) - used to create and host a database.
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - used to help build the database. 
+* [Balsamiq Wireframes](https://balsamiq.com/wireframes/) - used the create wireframes.
+* [CSS Gradient](https://cssgradient.io/) - used to select colours for the background.
 
 ## Motivation
 The reason why I chose to create a business directory is because it could serve as a directory for many activities. The data in this particular directory is for businesses but it could be used for all sorts of items such as recipes, books, people, music, etc.

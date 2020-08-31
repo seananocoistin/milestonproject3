@@ -3,7 +3,7 @@
 
 <!-- Search box -->
 <div class="container">
-    <div style="background-color:green;color:white;padding:20px;margin:25px;text-align:center">
+    <div style="background-color:transparent;color:green;padding:20px;margin:25px;text-align:center">
         <div class="searchbox">
                 <label for="search"><h1>What are you looking for?</h1></label>
         </div>
@@ -48,13 +48,55 @@
         </div>
         <div class="form-group">
             <i class="fa fa-clock-o" aria-hidden="true"></i>
-            <br>
-            {% for day in ["Monday-Friday",'Saturday','Sunday','All days'] %}
-                    {% if task[day] %}
-                        {{day}}: {{task["startTime"+day]}}-{{task["endTime"+day]}}<br/>
-                    {% endif %}
-            {% endfor %}
-        </div>
+        {% for day in ["Monday-Friday","Saturday","Sunday","All days"] %}
+        {% if task[day] and task["endTime"+day]!="0.00" %}
+        {{day}}: {{task["startTime"+day]}}-{{task["endTime"+day]}}<br/>
+        {% endif %}
+
+        {% if day == "Monday-Friday" and today >0 and today<6 and task["Monday-Friday"] and task["endTime"+day]!="0.00" %}
+
+        {% if int(task["startTime"+day])<now and int(task["endTime"+day])>now %}
+            <div>
+            <span style="background-color:green;color:white;padding:5px;margin-top:15px;border-radius:5px;">Open</span>
+            </div>
+        {% else %}
+                <div>
+                <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
+                </div>
+        {% endif %}
+        {% elif day == "Saturday" and today == 6 and task["Saturday"] and task["endTime"+day]!="0.00" %}
+        {% if int(task["startTime"+day])<now and int(task["endTime"+day])>now %}
+            <div>
+            <span style="background-color:green;color:white;padding:5px;margin-top:15px;border-radius:5px;">Open</span>
+            </div>
+        {% else %}
+                <div>
+                <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
+                </div>
+        {% endif %}
+        {% elif day == "Sunday" and today == 0 and task["Sunday"] and task["endTime"+day]!="0.00" %}
+        {% if int(task["startTime"+day])<now and int(task["endTime"+day])>now %}
+            <div>
+            <span style="background-color:green;color:white;padding:5px;margin-top:15px;border-radius:5px;">Open</span>
+            </div>
+        {% else %}
+                <div>
+                <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
+                </div>
+        {% endif %}
+        {% elif day == "All days" and task["All days"] and task["endTime"+day]!="0.00" %}
+        {% if int(task["startTime"+day])<now and int(task["endTime"+day])>now %}
+            <div>
+            <span style="background-color:green;color:white;padding:5px;margin-top:15px;border-radius:5px;">Open</span>
+            </div>
+        {%else%}
+                <div>
+                <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
+                </div>
+        {%endif%}
+{%endif%}
+{%endfor%}
+</div>
         <div class="form-group">
             <p><strong>About</strong></p> {{task.about}}  
         </div>
