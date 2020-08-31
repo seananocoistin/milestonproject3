@@ -126,7 +126,7 @@ I was inspired to make the business directory as I came across a business direct
 ## Testing
 There was constant testing of the code during the design and construction of this website. Things frequently did not work and they had to be modified or sometimes changed entirely in order to get it to work. Html files were put through the HTML Validator to ensure that they were correct and error free.
 The logging in and creation of new listings generated plenty of errors and those files had to be changed numerous times in order to get them to function as desired. That can be seen in the changes in the app.py and create.html, login.html, signup.html, edit.html files.  MondoDB had to consulted continuously to confirm that data entered into the website during registration and editing was received.
-The layout and appearance underwent considerable change during the design. As more pages and funcions were added to the website, the appearance was found unsuitable so a new approach had to be undertaken. That is why the background image was removed and gradient colours were placed as a background.
+The layout and appearance underwent considerable change during the design. As more pages and functions were added to the website, the appearance was found unsuitable so a new approach had to be undertaken. That is why the background image was removed and gradient colours were placed as a background.
 
 
 ## Future Development
