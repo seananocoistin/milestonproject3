@@ -2,14 +2,14 @@
 {% block content %}
 
 <div class="container">
-<div style="background-color:green;color:white;padding:20px;text-align:center">
+<div style="background-color:green;color:white;padding:20px;text-align:center;width:60%;margin:auto;">
     <h2 class="display-2">Edit your listing</h2>
 </div>
 </div>
 
 
 <div class="container">
-<div style="background-color:whitesmoke;color:black;padding:10px;text-align:left">
+<div style="background-color:white;color:black;padding:10px;text-align:left;width:60%;margin:auto;">
 <strong>ABOUT</strong>
 <form action='/editlisting' method='post' enctype="multipart/form-data">
   <div class="form-row">
@@ -61,19 +61,23 @@
 <strong>OPENING HOURS</strong>
 <p>What days and hours does your business operate on?</p>
 
-{% for day in ["Monday-Friday",'Saturday','Sunday','All days']%}
-<input type="checkbox" name="{{day}}" value="{{day}}">
-<label for="{{day}}">{{day}}</label>
-<select name="startTime{{day}}">
+{% for day in ["Monday-Friday","Saturday","Sunday","All days"] %}
+    <input type="checkbox" name="{{day}}" value="{{day}}">
+    <label for="{{day}}">{{day}}</label>
+    <select name="startTime{{day}}">
 {% for i in range(24) %}
-<option value="{{i}}.00">{{i}}.00</option>
+    {% if data["startTime"+day] and int(data["startTime"+day])==i %}
+        <option selected value="{{i}}.00">{{i}}.00</option>
+    {% else %}
+        <option value="{{i}}.00">{{i}}.00</option>
+    {% endif %}
 {% endfor %}
-</select>
-<select name="endTime{{day}}">
+    </select>
+    <select name="endTime{{day}}" value="{{data["endTime"+day]}}">
 {% for i in range(24) %}
-<option value="{{i}}.00">{{i}}.00</option>
+    <option value="{{i}}.00">{{i}}.00</option>
 {% endfor %}
-</select>
+    </select>
 <br>
 {% endfor %}
 <br>
@@ -86,14 +90,11 @@
       <textarea name="about" rows="5" cols="150"></textarea>
   </div>
 <br>
-<strong>Image or logo</strong>
-<p>(optional)</p>
-<p>Click on the "Choose File" button to upload a image file:</p>
-<input type="file" name="image">
-<br>
+
 <button type="submit" class="btn btn-sm btn-primary mr-1"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
 
 <a class="btn btn-sm btn-danger" href="/mylisting"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
+
 </form>
 </div>
 </div>

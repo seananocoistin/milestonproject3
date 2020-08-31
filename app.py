@@ -88,13 +88,7 @@ def forgotemail():
             smtp_server = "smtp.gmail.com"
             sender_email = "info@gmail.com" # Enter your address
             receiver_email = request.form["email"]
-            password = "123456"
-            """message = "Your password is: "+ user["password"]"""
-
-            """context = ssl.create_default_context()
-            with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-                server.login(sender_email, password)
-                server.sendmail(sender_email, receiver_email, message)"""
+            password = ""
             return render_template("forgot.html",send=True,email=receiver_email)
 
 @app.route("/create")
@@ -105,15 +99,13 @@ def create():
 def edit():
     if request.method == "POST":
         listingtoedit = request.form.to_dict()
-        return render_template("edit.html",status=author,data=listingtoedit)
+        return render_template("edit.html",status=author,data=listingtoedit,int=float)
 
 
 @app.route("/addlisting", methods=["POST","GET"])
 def addlisting():
     if request.method == "POST":
         newlisting = request.form.to_dict()
-        """image_file = open(request.files["image"], "r").read()
-        encoded_string = base64.b64encode(image_file).decode()"""
         newlisting.update({"author":author})
         mongo.db.listings.insert(newlisting)
         return mylisting()

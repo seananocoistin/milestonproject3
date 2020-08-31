@@ -40,12 +40,12 @@
         </div>
         <div class="form-group">
         <h3><i class="fa fa-clock-o" aria-hidden="true"></i> Business hours</h3>
-        {% for day in ["Monday_Friday",'Saturday','Sunday','All days'] %}
-        {% if task[day] %}
+        {% for day in ["Monday-Friday","Saturday","Sunday","All days"] %}
+        {% if task[day] and task["endTime"+day]!="0.00" %}
         {{day}}: {{task["startTime"+day]}}-{{task["endTime"+day]}}<br/>
         {% endif %}
 
-        {% if day == "Monday_Friday" and today >0 and today<6 %}
+        {% if day == "Monday-Friday" and today >0 and today<6 and task["Monday-Friday"] and task["endTime"+day]!="0.00" %}
 
         {% if int(task["startTime"+day])<now and int(task["endTime"+day])>now %}
             <div>
@@ -56,7 +56,7 @@
                 <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
                 </div>
         {% endif %}
-        {% elif day == "Saturday" and today == 6 %}
+        {% elif day == "Saturday" and today == 6 and task["Saturday"] and task["endTime"+day]!="0.00" %}
         {% if int(task["startTime"+day])<now and int(task["endTime"+day])>now %}
             <div>
             <span style="background-color:green;color:white;padding:5px;margin-top:15px;border-radius:5px;">Open</span>
@@ -66,7 +66,7 @@
                 <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
                 </div>
         {% endif %}
-        {% elif day == "Sunday" and today == 0 %}
+        {% elif day == "Sunday" and today == 0 and task["Sunday"] and task["endTime"+day]!="0.00" %}
         {% if int(task["startTime"+day])<now and int(task["endTime"+day])>now %}
             <div>
             <span style="background-color:green;color:white;padding:5px;margin-top:15px;border-radius:5px;">Open</span>
@@ -76,7 +76,7 @@
                 <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
                 </div>
         {% endif %}
-        {% elif day == "All days"%}
+        {% elif day == "All days" and task["All days"] and task["endTime"+day]!="0.00" %}
         {% if int(task["startTime"+day])<now and int(task["endTime"+day])>now %}
             <div>
             <span style="background-color:green;color:white;padding:5px;margin-top:15px;border-radius:5px;">Open</span>
@@ -86,10 +86,6 @@
                 <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
                 </div>
         {%endif%}
-        {%else%}
-                <div>
-                <span style="background-color:red;color:white;padding:5px;border-radius:5px;">Closed now</span>
-                </div>
 {%endif%}
 {%endfor%}
 
@@ -112,9 +108,16 @@
             <input name="email"  value="{{ task.email }}" type="hidden"/>
             <input name="hours"  value="{{ task.hours }}" type="hidden"/>
             <input name="about"  value="{{ task.about }}" type="hidden"/>
+            {% for day in ["Monday-Friday",'Saturday','Sunday','All days']%}
+                <input name="{{task[day]}}" value="{{task[day]}}" type="hidden">
+                <input name="{{task["startTime"+day]}}" value="{{task["startTime"+day]}}" type="hidden">
+                <input name="{{task["endTime"+day]}}" value="{{task["endTime"+day]}}" type="hidden">
+            {% endfor %}
+            <div style="justify-content: center;">
             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i> Edit this listing</button>
+            </div>
         </form>
-<br>
+        <br>
         <form action="/deletelisting" method="post">
             <input name="business_name" value="{{ task.business_name }}" type="hidden"/>
             <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete this listing</button>
